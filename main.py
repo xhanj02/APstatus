@@ -27,7 +27,7 @@ def addhostname(*args):
     conn.close()
     pass
 
-addhostname("google.com", "seznam.cz","google.cz","gjk.cz")
+#addhostname("google.com", "seznam.cz","google.cz","gjk.cz")
 
 def main():
 
