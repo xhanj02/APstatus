@@ -33,157 +33,151 @@ def addhostname(*args):
 def main():
 
     conn = sqlite3.connect("hostnames.db")
+    print(sqlite3.connect("hostnames.db").cursor().execute("SELECT * FROM ips").fetchall())
     conn.row_factory = lambda cursor, row: row[0] #dělá z tuplů stringy bez závorek
     cur = conn.cursor()
     cur.execute("SELECT * FROM ips")
     hostnames= cur.fetchall()
     print(hostnames)
     rep=0
-    while rep<13:
+    while rep<1:
         for i in hostnames:
-            response = 0
+            response = 2
             #response = os.system("ping -c 1 " + i)
             #0 pro odpovídá, else pro cokoliv jiného
             if response == 0:
-              print (type(i), 'is up!')
+              print (i, 'is up!')
 
               #posuneme vše o hodinu dopředu
               a=conn.cursor()
-              a.execute('SELECT t10 FROM ips WHERE ip='"'"+i+"'") #hlásí že neexistuje column s "i"
+              a.execute('SELECT t10 FROM ips WHERE ip='"'"+i+"'")
               aa=a.fetchall()
-              print(aa)
-              a.execute("UPDATE ips SET t11 = "+aa+", WHERE ip = "+i+"")
+              a=conn.cursor()
+              a.execute('UPDATE ips SET t11 = '+str(aa[0])+' WHERE ip='"'"+i+"'")
 
               b=conn.cursor()
-              b.execute("SELECT t9 FROM ips WHERE ip = "+i+"")
+              b.execute('SELECT t9 FROM ips WHERE ip='"'"+i+"'")
               bb=b.fetchall()
-              b.execute("UPDATE ips SET t10 = "+bb+", WHERE ip = "+i+"")
+              b.execute('UPDATE ips SET t10 = '+str(bb[0])+' WHERE ip='"'"+i+"'")
 
               c=conn.cursor()
-              c.execute("SELECT t8 FROM ips WHERE ip = "+i+"")
+              c.execute('SELECT t8 FROM ips WHERE ip='"'"+i+"'")
               cc=c.fetchall()
-              c.execute("UPDATE ips SET t9 = "+cc+", WHERE ip = "+i+"")
+              c.execute('UPDATE ips SET t9 = '+str(cc[0])+' WHERE ip='"'"+i+"'")
 
               d=conn.cursor()
-              d.execute("SELECT t7 FROM ips WHERE ip = "+i+"")
+              d.execute('SELECT t7 FROM ips WHERE ip='"'"+i+"'")
               dd=d.fetchall()
-              d.execute("UPDATE ips SET t8 = "+dd+", WHERE ip = "+i+"")
+              d.execute('UPDATE ips SET t8 = '+str(dd[0])+' WHERE ip='"'"+i+"'")
 
               e=conn.cursor()
-              e.execute("SELECT t6 FROM ips WHERE ip = "+i+"")
+              e.execute('SELECT t6 FROM ips WHERE ip='"'"+i+"'")
               ee=e.fetchall()
-              e.execute("UPDATE ips SET t7 = "+ee+", WHERE ip = "+i+"")
+              e.execute('UPDATE ips SET t7 = '+str(ee[0])+' WHERE ip='"'"+i+"'")
 
               f=conn.cursor()
-              f.execute("SELECT t5 FROM ips WHERE ip = "+i+"")
+              f.execute('SELECT t5 FROM ips WHERE ip='"'"+i+"'")
               ff=f.fetchall()
-              f.execute("UPDATE ips SET t6 = "+ff+", WHERE ip = "+i+"")
+              f.execute('UPDATE ips SET t6 = '+str(ff[0])+' WHERE ip='"'"+i+"'")
 
               g=conn.cursor()
-              g.execute("SELECT t4 FROM ips WHERE ip = "+i+"")
+              g.execute('SELECT t4 FROM ips WHERE ip='"'"+i+"'")
               gg=g.fetchall()
-              g.execute("UPDATE ips SET t5 = "+gg+", WHERE ip = "+i+"")
+              g.execute('UPDATE ips SET t5 = '+str(gg[0])+' WHERE ip='"'"+i+"'")
 
               h=conn.cursor()
-              h.execute("SELECT t3 FROM ips WHERE ip = "+i+"")
+              h.execute('SELECT t3 FROM ips WHERE ip='"'"+i+"'")
               hh=h.fetchall()
-              h.execute("UPDATE ips SET t4 = "+hh+", WHERE ip = "+i+"")
+              h.execute('UPDATE ips SET t4 = '+str(hh[0])+' WHERE ip='"'"+i+"'")
 
               l=conn.cursor()
-              l.execute("SELECT t2 FROM ips WHERE ip = "+i+"")
+              l.execute('SELECT t2 FROM ips WHERE ip='"'"+i+"'")
               ll=l.fetchall()
-              l.execute("UPDATE ips SET t3 = "+ll+", WHERE ip = "+i+"")
+              l.execute('UPDATE ips SET t3 = '+str(ll[0])+' WHERE ip='"'"+i+"'")
 
               j=conn.cursor()
-              j.execute("SELECT t1 FROM ips WHERE ip = "+i+"")
+              j.execute('SELECT t1 FROM ips WHERE ip='"'"+i+"'")
               jj=j.fetchall()
-              j.execute("UPDATE ips SET t2 = "+jj+", WHERE ip = "+i+"")
+              j.execute('UPDATE ips SET t2 = '+str(jj[0])+' WHERE ip='"'"+i+"'")
 
               k=conn.cursor()
-              k.execute("SELECT t0 FROM ips WHERE ip = "+i+"")
+              k.execute('SELECT t0 FROM ips WHERE ip='"'"+i+"'")
               kk=k.fetchall()
-              k.execute("UPDATE ips SET t1 = "+kk+", WHERE ip = "+i+"")
+              k.execute('UPDATE ips SET t1 = '+str(kk[0])+' WHERE ip='"'"+i+"'")
 
 
               #a konečně přidáme aktuální hodinu
-              add=conn.cursor("UPDATE ips SET t0 = 1, WHERE ip = "+i+"")
-              add.execute
+              add=conn.cursor()
+              add.execute('UPDATE ips SET t0 = 1 WHERE ip='"'"+i+"'")
               conn.commit()
-
 
             else:
               print (i, 'is down!')
 
               #posuneme vše o hodinu dopředu
               a=conn.cursor()
-              a.execute("SELECT t10 FROM ips WHERE ip = "+i+"")
+              a.execute('SELECT t10 FROM ips WHERE ip='"'"+i+"'")
               aa=a.fetchall()
-              a.execute("UPDATE ips SET t11 = "+aa+", WHERE ip = "+i+"")
+              a.execute('UPDATE ips SET t11 = '+str(aa[0])+' WHERE ip='"'"+i+"'")
 
               b=conn.cursor()
-              b.execute("SELECT t9 FROM ips WHERE ip = "+i+"")
+              b.execute('SELECT t9 FROM ips WHERE ip='"'"+i+"'")
               bb=b.fetchall()
-              b.execute("UPDATE ips SET t10 = "+bb+", WHERE ip = "+i+"")
+              b.execute('UPDATE ips SET t10 = '+str(bb[0])+' WHERE ip='"'"+i+"'")
 
               c=conn.cursor()
-              c.execute("SELECT t8 FROM ips WHERE ip = "+i+"")
+              c.execute('SELECT t8 FROM ips WHERE ip='"'"+i+"'")
               cc=c.fetchall()
-              c.execute("UPDATE ips SET t9 = "+cc+", WHERE ip = "+i+"")
+              c.execute('UPDATE ips SET t9 = '+str(cc[0])+' WHERE ip='"'"+i+"'")
 
               d=conn.cursor()
-              d.execute("SELECT t7 FROM ips WHERE ip = "+i+"")
+              d.execute('SELECT t7 FROM ips WHERE ip='"'"+i+"'")
               dd=d.fetchall()
-              d.execute("UPDATE ips SET t8 = "+dd+", WHERE ip = "+i+"")
+              d.execute('UPDATE ips SET t8 = '+str(dd[0])+' WHERE ip='"'"+i+"'")
 
               e=conn.cursor()
-              e.execute("SELECT t6 FROM ips WHERE ip = "+i+"")
+              e.execute('SELECT t6 FROM ips WHERE ip='"'"+i+"'")
               ee=e.fetchall()
-              e.execute("UPDATE ips SET t7 = "+ee+", WHERE ip = "+i+"")
+              e.execute('UPDATE ips SET t7 = '+str(ee[0])+' WHERE ip='"'"+i+"'")
 
               f=conn.cursor()
-              f.execute("SELECT t5 FROM ips WHERE ip = "+i+"")
+              f.execute('SELECT t5 FROM ips WHERE ip='"'"+i+"'")
               ff=f.fetchall()
-              f.execute("UPDATE ips SET t6 = "+ff+", WHERE ip = "+i+"")
+              f.execute('UPDATE ips SET t6 = '+str(ff[0])+' WHERE ip='"'"+i+"'")
 
               g=conn.cursor()
-              g.execute("SELECT t4 FROM ips WHERE ip = "+i+"")
+              g.execute('SELECT t4 FROM ips WHERE ip='"'"+i+"'")
               gg=g.fetchall()
-              g.execute("UPDATE ips SET t5 = "+gg+", WHERE ip = "+i+"")
+              g.execute('UPDATE ips SET t5 = '+str(gg[0])+' WHERE ip='"'"+i+"'")
 
               h=conn.cursor()
-              h.execute("SELECT t3 FROM ips WHERE ip = "+i+"")
+              h.execute('SELECT t3 FROM ips WHERE ip='"'"+i+"'")
               hh=h.fetchall()
-              h.execute("UPDATE ips SET t4 = "+hh+", WHERE ip = "+i+"")
+              h.execute('UPDATE ips SET t4 = '+str(hh[0])+' WHERE ip='"'"+i+"'")
 
               l=conn.cursor()
-              l.execute("SELECT t2 FROM ips WHERE ip = "+i+"")
+              l.execute('SELECT t2 FROM ips WHERE ip='"'"+i+"'")
               ll=l.fetchall()
-              l.execute("UPDATE ips SET t3 = "+ll+", WHERE ip = "+i+"")
+              l.execute('UPDATE ips SET t3 = '+str(ll[0])+' WHERE ip='"'"+i+"'")
 
               j=conn.cursor()
-              j.execute("SELECT t1 FROM ips WHERE ip = "+i+"")
+              j.execute('SELECT t1 FROM ips WHERE ip='"'"+i+"'")
               jj=j.fetchall()
-              j.execute("UPDATE ips SET t2 = "+jj+", WHERE ip = "+i+"")
+              j.execute('UPDATE ips SET t2 = '+str(jj[0])+' WHERE ip='"'"+i+"'")
 
               k=conn.cursor()
-              k.execute("SELECT t0 FROM ips WHERE ip = "+i+"")
+              k.execute('SELECT t0 FROM ips WHERE ip='"'"+i+"'")
               kk=k.fetchall()
-              k.execute("UPDATE ips SET t1 = "+kk+", WHERE ip = "+i+"")
+              k.execute('UPDATE ips SET t1 = '+str(kk[0])+' WHERE ip='"'"+i+"'")
 
 
               #a konečně přidáme aktuální hodinu
-              add=conn.cursor("UPDATE ips SET t0= 0, WHERE ip = "+i+"")
-              add.execute
+              add=conn.cursor()
+              add.execute('UPDATE ips SET t0= 0 WHERE ip='"'"+i+"'")
               conn.commit()
-
-            if i in locals():
-                #přidej do dict nebo db?
-                pass
-            else:
-                #vytvoř dict nebo db?
-                pass
         rep=rep+1
         time.sleep(1)
+    print(sqlite3.connect("hostnames.db").cursor().execute("SELECT * FROM ips").fetchall())
     conn.close()
     pass
 

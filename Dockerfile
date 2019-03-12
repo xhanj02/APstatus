@@ -2,12 +2,11 @@ FROM python:3.7.2
 
 ENV PYTHONUNBUFFERED 1
 
-COPY main.py /main.py
-COPY hostnames.db /hostnames.db
-COPY requirements.txt /requirements.txt
+RUN mkdir /code
+WORKDIR /code
+COPY requirements.txt /code/
 RUN pip install -r requirements.txt
-COPY . ./
+COPY / /code/
+EXPOSE 8000
 
-
-RUN adduser -no-create-home user
-USER user
+CMD ["python", "main.py"]
