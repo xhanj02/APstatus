@@ -1,4 +1,4 @@
-# APstatus (WIP)
+# APstatus
 Aplikace, která slouží k monitorování dostupnosti síťových prvků a zařízení
 na Gymnáziu Jana Keplera (Wi-Fi AP, tiskárny, IP telefony, switche).
 - Aplikace je přístupná přes webové rozhraní.
