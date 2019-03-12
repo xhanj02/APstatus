@@ -37,7 +37,6 @@ def main():
     cur = conn.cursor()
     cur.execute("SELECT * FROM ips")
     hostnames= cur.fetchall()
-
     print(hostnames)
     rep=0
     while rep<13:
@@ -46,11 +45,11 @@ def main():
             #response = os.system("ping -c 1 " + i)
             #0 pro odpovídá, else pro cokoliv jiného
             if response == 0:
-              print (i, 'is up!')
+              print (type(i), 'is up!')
 
               #posuneme vše o hodinu dopředu
               a=conn.cursor()
-              a.execute("SELECT t10 FROM ips WHERE ip = "+i+"") #hlásí že neexistuje column s "i"
+              a.execute('SELECT t10 FROM ips WHERE ip='"'"+i+"'") #hlásí že neexistuje column s "i"
               aa=a.fetchall()
               print(aa)
               a.execute("UPDATE ips SET t11 = "+aa+", WHERE ip = "+i+"")
