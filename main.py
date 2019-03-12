@@ -2,15 +2,11 @@
 # Name:        module1
 # Purpose:
 #
-# Author:      Jirka
+# Author:      Jiří Handzel
 #
-# Created:     10.03.2019
-# Copyright:   (c) Jirka 2019
-# Licence:     <your licence>
+# Created:     10.02.2019
+# Copyright:   (c) JH 2019
 #-------------------------------------------------------------------------------
-
-print ("python 3.7.2")
-
 import os
 import time
 import sqlite3
@@ -28,7 +24,21 @@ def addhostname(*args):
     conn.close()
     pass
 
-#addhostname("google.com", "seznam.cz","google.cz","gjk.cz")
+#addhostname("google.com")
+
+def deletehostname(*args):
+    conn = sqlite3.connect("hostnames.db")
+    c = conn.cursor()
+
+    for delhostname in args:
+        delete ="DELETE FROM ips WHERE ip= ('"+delhostname+"')"
+        c.execute(delete)
+        print("deleted hostname", delhostname)
+    conn.commit()
+    conn.close()
+    pass
+
+#deletehostname("google.com")
 
 def main():
 
@@ -40,10 +50,10 @@ def main():
     hostnames= cur.fetchall()
     print(hostnames)
     rep=0
-    while rep<1:
+    while True: #rep<12
         for i in hostnames:
-            response = 2
-            #response = os.system("ping -c 1 " + i)
+            #response = 2
+            response = os.system("ping -c 1 " + i)
             #0 pro odpovídá, else pro cokoliv jiného
             if response == 0:
               print (i, 'is up!')
@@ -176,7 +186,7 @@ def main():
               add.execute('UPDATE ips SET t0= 0 WHERE ip='"'"+i+"'")
               conn.commit()
         rep=rep+1
-        time.sleep(1)
+        time.sleep(10)
     print(sqlite3.connect("hostnames.db").cursor().execute("SELECT * FROM ips").fetchall())
     conn.close()
     pass
