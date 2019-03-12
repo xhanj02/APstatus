@@ -2,9 +2,7 @@ from django.db import models
 
 # Create your models here.
 class ips(models.Model):
-    class Meta:
-        db_table = 'ips'
-    ip = models.TextField(primary_key=True, blank=True)
+    ip = models.CharField(primary_key=True, max_length=15, blank=True)
     t11 = models.IntegerField(blank=True, null=True, default=2)
     t10 = models.IntegerField(blank=True, null=True, default=2)
     t9 = models.IntegerField(blank=True, null=True, default=2)
@@ -17,3 +15,6 @@ class ips(models.Model):
     t2 = models.IntegerField(blank=True, null=True, default=2)
     t1 = models.IntegerField(blank=True, null=True, default=2)
     t0 = models.IntegerField(blank=True, null=True, default=2)
+
+    class Meta:
+        db_table = 'ips'
