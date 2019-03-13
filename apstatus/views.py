@@ -2,9 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from apstatus.models import ips
 from django.template import loader
+from django.views.generic import View
 import datetime
+from django.contrib.auth.decorators import login_required
 
-
+@login_required(login_url='/admin/login/?next=/admin/')
 def index(request):
     data = ips.objects.all()
     hour=(datetime.datetime.now()).hour
