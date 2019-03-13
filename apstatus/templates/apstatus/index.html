@@ -3,13 +3,13 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="index.css">
 </head>
-<body>
+<body style="background-color: rgb(40, 44, 52)">
 <div style="text-align:center; position:absolute; top:1%; right:1%;">
 	<a href="/admin">Login</a>
 </div>
 <div style="margin:auto; width:80%; padding:10%; text-align:center;">
-<h1>APstatus</h1>
-<table style="width:100%; border: 1px solid black; align:center">
+<h1 style="color: #dddddd;">APstatus</h1>
+<table style="table layout:fixed; width:100%; cellspacing=0; cellpadding=0, align:center; background-color: #616161; color: #dddddd">
 	<tr>
 		<th>IP</th>
 		<th>{{hour}}:00</th>
@@ -30,99 +30,99 @@
 		<td style="text-align:center">{{ap.ip}}</td>
 
 		{%if ap.t0 == 0%}
-			<td style="background-color:green">
+			<td style="width:5%; background-color:#379683">
 		{%elif ap.t0 == 1%}
-			<td style="background-color:red">
+			<td style="width:5%; background-color:#6F2232">
 		{%else%}
-			<td style="background-color:yellow">
+			<td style="width:5%; background-color:yellow">
 		</td>
 		{%endif%}
 		{%if ap.t1 == 0%}
-			<td style="background-color:green">
+			<td style="width:5%; background-color:#379683">
 		{%elif ap.t1 == 1%}
-			<td style="background-color:red">
+			<td style="width:5%; background-color:#6F2232">
 		{%else%}
-			<td style="background-color:yellow">
+			<td style="width:5%; background-color:yellow">
 		</td>
 		{%endif%}
 		{%if ap.t2 == 0%}
-			<td style="background-color:green">
+			<td style="width:5%; background-color:#379683">
 		{%elif ap.t2 == 1%}
-			<td style="background-color:red">
+			<td style="width:5%; background-color:#6F2232">
 		{%else%}
-			<td style="background-color:yellow">
+			<td style="width:5%; background-color:yellow">
 		</td>
 		{%endif%}
 		{%if ap.t3 == 0%}
-			<td style="background-color:green">
+			<td style="width:5%; background-color:#379683">
 		{%elif ap.t3 == 1%}
-			<td style="background-color:red">
+			<td style="width:5%; background-color:#6F2232">
 		{%else%}
-			<td style="background-color:yellow">
+			<td style="width:5%; background-color:yellow">
 		</td>
 		{%endif%}
 		{%if ap.t4 == 0%}
-			<td style="background-color:green">
+			<td style="width:5%; background-color:#379683">
 		{%elif ap.t4 == 1%}
-			<td style="background-color:red">
+			<td style="width:5%; background-color:#6F2232">
 		{%else%}
-			<td style="background-color:yellow">
+			<td style="width:5%; background-color:yellow">
 		</td>
 		{%endif%}
 		{%if ap.t5 == 0%}
-			<td style="background-color:green">
+			<td style="width:5%; background-color:#379683">
 		{%elif ap.t5 == 1%}
-			<td style="background-color:red">
+			<td style="width:5%; background-color:#6F2232">
 		{%else%}
-			<td style="background-color:yellow">
+			<td style="width:5%; background-color:yellow">
 		</td>
 		{%endif%}
 		{%if ap.t6 == 0%}
-			<td style="background-color:green">
+			<td style="width:5%; background-color:#379683">
 		{%elif ap.t6 == 1%}
-			<td style="background-color:red">
+			<td style="width:5%; background-color:#6F2232">
 		{%else%}
-			<td style="background-color:yellow">
+			<td style="width:5%; background-color:yellow">
 		</td>
 		{%endif%}
 		{%if ap.t7 == 0%}
-			<td style="background-color:green">
+			<td style="width:5%; background-color:#379683">
 		{%elif ap.t7 == 1%}
-			<td style="background-color:red">
+			<td style="width:5%; background-color:#6F2232">
 		{%else%}
-			<td style="background-color:yellow">
+			<td style="width:5%; background-color:yellow">
 		</td>
 		{%endif%}
 		{%if ap.t8 == 0%}
-			<td style="background-color:green">
+			<td style="width:5%; background-color:#379683">
 		{%elif ap.t8 == 1%}
-			<td style="background-color:red">
+			<td style="width:5%; background-color:#6F2232">
 		{%else%}
-			<td style="background-color:yellow">
+			<td style="width:5%; background-color:yellow">
 		</td>
 		{%endif%}
 		{%if ap.t9 == 0%}
-			<td style="background-color:green">
+			<td style="width:5%; background-color:#379683">
 		{%elif ap.t9 == 1%}
-			<td style="background-color:red">
+			<td style="width:5%; background-color:#6F2232">
 		{%else%}
-			<td style="background-color:yellow">
+			<td style="width:5%; background-color:yellow">
 		</td>
 		{%endif%}
 		{%if ap.t10 == 0%}
-			<td style="background-color:green">
+			<td style="width:5%; background-color:#379683">
 		{%elif ap.t10 == 1%}
-			<td style="background-color:red">
+			<td style="width:5%; background-color:#6F2232">
 		{%else%}
-			<td style="background-color:yellow">
+			<td style="width:5%; background-color:yellow">
 		</td>
 		{%endif%}
 		{%if ap.t11 == 0%}
-			<td style="background-color:green">
+			<td style="width:5%; background-color:#379683">
 		{%elif ap.t11 == 1%}
-			<td style="background-color:red">
+			<td style="width:5%; background-color:#6F2232">
 		{%else%}
-			<td style="background-color:yellow">
+			<td style="width:5%; background-color:yellow">
 		</td>
 		{%endif%}
 

@@ -7,19 +7,18 @@ import datetime
 
 def index(request):
     data = ips.objects.all()
-    now = datetime.datetime.now()
-    hour=int(now.hour)
-    hour1=hour-1
-    hour2=hour-2
-    hour3=hour-3
-    hour4=hour-4
-    hour5=hour-5
-    hour6=hour-6
-    hour7=hour-7
-    hour8=hour-8
-    hour9=hour-9
-    hour10=hour-10
-    hour11=hour-11
+    hour=(datetime.datetime.now()- datetime.timedelta(minutes=60)).hour
+    hour1=(datetime.datetime.now()- datetime.timedelta(hours= 1)).hour
+    hour2=(datetime.datetime.now()- datetime.timedelta(hours= 2)).hour
+    hour3=(datetime.datetime.now()- datetime.timedelta(hours= 3)).hour
+    hour4=(datetime.datetime.now()- datetime.timedelta(hours= 4)).hour
+    hour5=(datetime.datetime.now()- datetime.timedelta(hours= 5)).hour
+    hour6=(datetime.datetime.now()- datetime.timedelta(hours= 6)).hour
+    hour7=(datetime.datetime.now()- datetime.timedelta(hours= 7)).hour
+    hour8=(datetime.datetime.now()- datetime.timedelta(hours= 8)).hour
+    hour9=(datetime.datetime.now()- datetime.timedelta(hours= 9)).hour
+    hour10=(datetime.datetime.now()- datetime.timedelta(hours= 10)).hour
+    hour11=(datetime.datetime.now()- datetime.timedelta(hours= 11)).hour
     template = loader.get_template('apstatus/index.html')
     context = {
         'data':data,
