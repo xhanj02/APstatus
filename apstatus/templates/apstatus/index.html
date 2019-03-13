@@ -7,7 +7,7 @@
 <div style="text-align:center; position:absolute; top:1%; right:1%;">
 	<a href="/admin">Login</a>
 </div>
-<div style="margin:auto; width:80%; padding:10%; text-align:center;">
+<div style="margin:auto; width:65%; padding:10%; text-align:center;">
 <h1 style="color: #dddddd;">APstatus</h1>
 <table style="table layout:fixed; width:100%; cellspacing=0; cellpadding=0, align:center; background-color: #616161; color: #dddddd">
 	<tr>
@@ -27,7 +27,7 @@
 	</tr>
 	{%for ap in data%}
 	<tr>
-		<td style="text-align:center">{{ap.ip}}</td>
+		<td style="width:10%; text-align:center">{{ap.ip}}</td>
 
 		{%if ap.t0 == 0%}
 			<td style="width:5%; background-color:#379683">
