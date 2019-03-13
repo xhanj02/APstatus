@@ -217,7 +217,7 @@ def main():
               conn.commit()
         conn.close()
         rep=rep+1
-        time.sleep(10)
+        time.sleep(60)
     print(sqlite3.connect("hostnames.db").cursor().execute("SELECT * FROM ips").fetchall())
     pass
 
