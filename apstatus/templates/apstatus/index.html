@@ -12,6 +12,7 @@
 <h1 style="color: #dddddd;">APstatus</h1>
 <table style="table layout:fixed; width:100%; cellspacing=0; cellpadding=0, align:center; background-color: #616161; color: #dddddd">
 	<tr>
+		<th>NAME</th>
 		<th>IP</th>
 		<th>{{hour}}:00</th>
 		<th>{{hour1}}:00</th>
@@ -28,8 +29,9 @@
 	</tr>
 	{%for ap in data%}
 	<tr>
+		<td style="width:10%; text-align:center">{{ap.name}}</td>
 		<td style="width:10%; text-align:center">{{ap.ip}}</td>
-
+		
 		{%if ap.t0 == 0%}
 			<td style="width:5%; background-color:#379683">
 		{%elif ap.t0 == 1%}

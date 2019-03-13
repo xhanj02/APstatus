@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class ips(models.Model):
+    name = models.CharField(max_length=30, blank=True)
     ip = models.CharField(primary_key=True, max_length=15, blank=True)
     t11 = models.IntegerField(blank=True, null=True, default=2)
     t10 = models.IntegerField(blank=True, null=True, default=2)

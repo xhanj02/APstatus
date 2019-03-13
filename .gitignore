@@ -21,3 +21,8 @@ $RECYCLE.BIN/
 # =========================
 # Operating System Files
 # =========================
+*.pyc
+*.pyc
+apstatus/__pycache__/models.cpython-37.pyc
+*.pyc
+apstatus/migrations/0002_auto_20190313_0934.py
