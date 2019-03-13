@@ -28,3 +28,7 @@ apstatus/__pycache__/models.cpython-37.pyc
 apstatus/migrations/0002_auto_20190313_0934.py
 hostnames.db
 hostnames.db
+*.pyc
+apstatus/__pycache__/views.cpython-37.pyc
+website/__pycache__/settings.cpython-37.pyc
+*.pyc
