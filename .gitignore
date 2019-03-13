@@ -32,3 +32,6 @@ hostnames.db
 apstatus/__pycache__/views.cpython-37.pyc
 website/__pycache__/settings.cpython-37.pyc
 *.pyc
+website/__pycache__/settings.cpython-37.pyc
+*.pyc
+hostnames.db
