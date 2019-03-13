@@ -11,35 +11,6 @@ import os
 import time
 import sqlite3
 
-def addhostname(*args):
-    conn = sqlite3.connect("hostnames.db")
-    c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS ips (ip text PRIMARY KEY, t11 integer, t10 integer, t9 integer, t8 integer, t7 integer, t6 integer, t5 integer, t4 integer, t3 integer, t2 integer, t1 integer, t0 integer)''')
-    #c.execute('''CREATE TABLE IF NOT EXISTS status (id integer PRIMARY KEY, t11 integer, t10 integer, t9 integer, t8 integer, t7 integer, t6 integer, t5 integer, t4 integer, t3 integer, t2 integer, t1 integer, t0 integer)''')
-    for newhostname in args:
-        insert ="INSERT INTO ips(ip,t11,t10,t9,t8,t7,t6,t5,t4,t3,t2,t1,t0) VALUES ('"+newhostname+"',2,2,2,2,2,2,2,2,2,2,2,2)"
-        c.execute(insert)
-        print("added hostname", newhostname)
-    conn.commit()
-    conn.close()
-    pass
-
-#addhostname("google.com")
-
-def deletehostname(*args):
-    conn = sqlite3.connect("hostnames.db")
-    c = conn.cursor()
-
-    for delhostname in args:
-        delete ="DELETE FROM ips WHERE ip= ('"+delhostname+"')"
-        c.execute(delete)
-        print("deleted hostname", delhostname)
-    conn.commit()
-    conn.close()
-    pass
-
-#deletehostname("google.com")
-
 def main():
     conn = sqlite3.connect("hostnames.db")
     print(sqlite3.connect("hostnames.db").cursor().execute("SELECT * FROM ips").fetchall())
@@ -59,7 +30,6 @@ def main():
         for i in hostnames:
             conn = sqlite3.connect("hostnames.db")
             conn = sqlite3.connect("hostnames.db")
-            #response = 2
             response = os.system("ping -c 1 " + i)
             #0 pro odpovídá, else pro cokoliv jiného
             if response == 0:
@@ -216,11 +186,9 @@ def main():
               add.execute('UPDATE ips SET t0= 1 WHERE ip='"'"+i+"'")
               conn.commit()
         conn.close()
-        rep=rep+1
         time.sleep(60)
     print(sqlite3.connect("hostnames.db").cursor().execute("SELECT * FROM ips").fetchall())
     pass
-
 
 
 
