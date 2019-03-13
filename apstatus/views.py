@@ -7,7 +7,7 @@ import datetime
 
 def index(request):
     data = ips.objects.all()
-    hour=(datetime.datetime.now()- datetime.timedelta(minutes=60)).hour
+    hour=(datetime.datetime.now()).hour
     hour1=(datetime.datetime.now()- datetime.timedelta(hours= 1)).hour
     hour2=(datetime.datetime.now()- datetime.timedelta(hours= 2)).hour
     hour3=(datetime.datetime.now()- datetime.timedelta(hours= 3)).hour
