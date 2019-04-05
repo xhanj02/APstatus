@@ -4,7 +4,9 @@ services:
 
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      TZ: "Europe/Prague"
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:
@@ -12,6 +14,8 @@ services:
 
   localpy:
     build: .
+    environment:
+      TZ: "Europe/Prague"
     command: python main.py
     volumes:
       - .:/code

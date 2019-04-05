@@ -13,12 +13,12 @@ import sqlite3
 
 def main():
     conn = sqlite3.connect("hostnames.db")
-    print(sqlite3.connect("hostnames.db").cursor().execute("SELECT * FROM ips").fetchall())
+    #print(sqlite3.connect("hostnames.db").cursor().execute("SELECT * FROM ips").fetchall())
     conn.row_factory = lambda cursor, row: row[0] #dělá z tuplů stringy bez závorek
     cur = conn.cursor()
     cur.execute("SELECT * FROM ips")
     hostnames= cur.fetchall()
-    print(hostnames)
+    #print(hostnames)
     conn.close()
     rep=0
     while True: #rep<12
@@ -33,7 +33,7 @@ def main():
             response = os.system("ping -c 1 " + i)
             #0 pro odpovídá, else pro cokoliv jiného
             if response == 0:
-              print (i, 'is up!')
+              #print (i, 'is up!')
 
               #posuneme vše o hodinu dopředu
               a=conn.cursor()
@@ -186,8 +186,8 @@ def main():
               add.execute('UPDATE ips SET t0= 1 WHERE ip='"'"+i+"'")
               conn.commit()
         conn.close()
-        time.sleep(60)
-    print(sqlite3.connect("hostnames.db").cursor().execute("SELECT * FROM ips").fetchall())
+        time.sleep(30)
+    #print(sqlite3.connect("hostnames.db").cursor().execute("SELECT * FROM ips").fetchall())
     pass
 
 

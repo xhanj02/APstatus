@@ -35,3 +35,6 @@ website/__pycache__/settings.cpython-37.pyc
 website/__pycache__/settings.cpython-37.pyc
 *.pyc
 hostnames.db
+/__pycache__/
+apstatus/__pycache__/
+website/__pycache__/
